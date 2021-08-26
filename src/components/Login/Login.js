@@ -1,4 +1,5 @@
 import React from 'react'
+import { loginUrl } from '../../constants'
 import './Login.css'
 
 const Login = props => {
@@ -7,7 +8,7 @@ const Login = props => {
 			<img 
 				src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
 			></img>
-			<a href="">Login with Spotify</a>
+			<a href={loginUrl}>Login with Spotify</a>
 		</div>
 	)
 }
