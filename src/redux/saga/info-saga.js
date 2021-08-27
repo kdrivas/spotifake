@@ -14,11 +14,10 @@ import {
 	takeEvery
 } from 'redux-saga/effects';
 
-function* getUserInfo({payload}){
-	const data = yield call(_getUserInfo, payload);
-	yield put({type: SET_USER, payload: data});
+function* setUserInfo({payload}){
+	yield put({type: SET_USER, payload});
 }
 
 export default function* infoSaga() {
-	yield takeLastest(SET_USER_REQUESTED, getUserInfo);
+	yield takeLastest(SET_USER_REQUESTED, setUserInfo);
 }
