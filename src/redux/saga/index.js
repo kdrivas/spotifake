@@ -1,4 +1,4 @@
-import infoSagas from './info_sagas';
+import infoSaga from './info-saga';
 
 import { spawn } from 'redux-saga';
 

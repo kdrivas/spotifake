@@ -1,6 +1,6 @@
 import {
 	SET_USER
-} from './../actions/info_action';
+} from '../actions/info-action';
 
 const initialState = {
 	user: null,
