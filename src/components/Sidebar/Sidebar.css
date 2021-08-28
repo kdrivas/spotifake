@@ -1,0 +1,16 @@
+.sidebar {
+  flex: 0.2;
+  display: grid;
+  height: 100vh;
+  color: white;
+  min-width: 221px;
+  background: black;
+  padding: 10px
+}
+
+.sidebar__logo {
+  position: left;
+  margin-top: 2px;
+  margin-left: 4px;
+  height: 64px;
+}

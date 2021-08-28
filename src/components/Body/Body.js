@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Body.css';
+
 const Body = props => {
 	return (
-		<div>
+		<div className="body">
 			This is the body
 		</div>
 	);

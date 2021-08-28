@@ -8,9 +8,11 @@ import LoginPage from './pages/LoginPage';
 function App() {
 
   return (
-		<Provider store={store}>
-			<LoginPage/>
-		</Provider>
+    <div className="App">
+      <Provider store={store}>
+        <LoginPage/>
+      </Provider>
+    </div>
   );
 }
 
