@@ -1,7 +1,7 @@
 import infoSaga from './info-saga';
 
-import { spawn } from 'redux-saga';
+import { spawn } from 'redux-saga/effects';
 
 export default function* rootSaga() {
-	yield spawn(infoSagas);
+	yield spawn(infoSaga);
 };

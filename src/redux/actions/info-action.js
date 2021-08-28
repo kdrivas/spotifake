@@ -1,2 +1,5 @@
-export const SET_USER = 'SET_USER';
-export const SET_USER_REQUESTED = 'SET_USER_REQUESTED';
+export const SET_USER = "SET_USER";
+export const SET_USER_REQUESTED = "SET_USER_REQUESTED";
+
+export const SET_TOKEN = "SET_TOKEN";
+export const SET_TOKEN_REQUESTED = "SET_TOKEN_REQUESTED";

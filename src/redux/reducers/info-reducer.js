@@ -6,8 +6,9 @@ const initialState = {
 	user: null,
 	playlists: [],
 	playing: false,
-	item: null
-}
+	item: null,
+	token: null
+};
 
 export default(state = initialState, {type, payload}) => {
 	switch (type) {
@@ -16,5 +17,7 @@ export default(state = initialState, {type, payload}) => {
 				...state, 
 				user: payload
 			}
+		default:
+			return state
 	}
-}
+};
