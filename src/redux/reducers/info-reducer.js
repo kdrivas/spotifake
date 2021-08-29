@@ -1,6 +1,7 @@
 import {
   SET_USER,
-  SET_TOKEN
+  SET_TOKEN,
+  SET_PLAYLIST
 } from '../actions/info-action';
 
 const initialState = {
@@ -22,6 +23,12 @@ export default(state = initialState, {type, payload}) => {
       return {
         ...state,
         token: payload
+      }
+    case SET_PLAYLIST:
+      console.log('dentro del reducer', payload)
+      return {
+        ...state,
+        playlists: payload
       }
     default:
       return state
