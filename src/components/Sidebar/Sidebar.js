@@ -18,6 +18,8 @@ const Sidebar = ({
       <SidebarOption title={"Inicio"} Icon={HomeIcon}></SidebarOption>
       <SidebarOption title={"Buscar"} Icon={SearchIcon}></SidebarOption>
       <SidebarOption title={"Tu Biblioteca"} Icon={LibraryMusicIcon}></SidebarOption>
+      <br />
+      <hr />
       {playlists?.items?.map((item, index) => <SidebarOption title={item.name} key={index} /> )}
     </div>
   );

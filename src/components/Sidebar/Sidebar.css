@@ -5,12 +5,12 @@
   height: 100vh;
   min-width: 221px;
   background: black;
-  padding: 10px
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .sidebar__logo {
-  margin-top: 3px;
-  padding-left: 4.3px;
+  margin-top: 13px;
   margin-right: auto;
   height: 63.4px;
   margin-bottom: 13px;
