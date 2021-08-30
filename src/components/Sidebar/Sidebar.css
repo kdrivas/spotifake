@@ -2,7 +2,6 @@
   flex: 0.2;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   min-width: 221px;
   background: black;
   padding-left: 10px;
@@ -11,7 +10,17 @@
 
 .sidebar__logo {
   margin-top: 13px;
+  margin-left: 5px;
   margin-right: auto;
   height: 63.4px;
   margin-bottom: 13px;
+}
+
+.sidebar > hr {
+  width: 90%;
+  border-color: #282828;
+}
+
+.br {
+  height: 24px;
 }

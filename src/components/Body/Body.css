@@ -4,5 +4,6 @@
   background: linear-gradient(rgb(84, 84, 84), rgb(0,0,0));
   color: white;
   padding: 30px;
+  overflow-y: scroll;
   width: 100%;
 }

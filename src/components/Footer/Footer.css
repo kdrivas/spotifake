@@ -1,9 +1,59 @@
 .footer {
   background: #181818;
   position: fixed;
+  display: flex;
   bottom: 0px;
-  height: 50px;
+  height: 90px;
   width: 100%;
-  padding: 20px;
+  padding: 0px;
   border-top: 1px solid #282828;
+}
+
+.footer__left {
+  flex: 0.3;
+}
+
+.footer__center {
+  color: #b2b2b2;
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__rigth {
+  flex: 0.3;
+  display: flex;
+  gap: 20px;
+  color: #b2b2b2;
+  align-items: center;
+}
+
+.footer__buttons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+.footer__time-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  width: 94%;
+  gap: 8px;
+}
+
+.footer_play-button {
+  transform: scale(1.65);
+  color: white;
+}
+
+.footer__progress-bar {
+  width: 86%;
+  background: #b2b2b2;
+  height: 4px;
+  border-radius: 100px;
 }
