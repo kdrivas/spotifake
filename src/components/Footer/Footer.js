@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 
 import './Footer.css';
 
-const PrettoSlider = withStyles({
+const SpotifySlider = withStyles({
   root: {
     color: '#b2b2b2',
     height: 0,
@@ -69,14 +69,16 @@ const Footer = (props) => {
         </div>
         <div className="footer__time-info">
           <span>0:30</span>
-          <PrettoSlider/>
+          <SpotifySlider/>
           <span>5:39</span>
         </div>
       </div>
       <div className="footer__rigth">
-        <PlaylistPlayIcon/>
-        <VolumeDownIcon/>
-        <Slider/>
+        <div className="footer__controls">
+          <PlaylistPlayIcon/>
+          <VolumeDownIcon/>
+          <SpotifySlider className="footer__volume-control"/>
+        </div>
       </div>
 		</div>
 	);
