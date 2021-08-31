@@ -17,6 +17,7 @@
 }
 
 .sidebar > hr {
+  margin: 7px auto 4px auto;
   width: 90%;
   border-color: #282828;
 }
