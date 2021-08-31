@@ -56,7 +56,7 @@ const Footer = (props) => {
         <img className="footer__album-logo" src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/5c37622a-7a39-4d95-bd4a-275878274ea3/metcon-7-zapatillas-de-entrenamiento-CHLK3h.png"></img>
         <div className="footer__song-info">
           <a className="footer__song-info__name" href="">Song</a>
-          <a className="footer__song-info__author" href="">asdasdasdasdsa</a>
+          <a className="footer__song-info__author" href="">asdasdasasdasdhghgjgjgjhgjgjhgjasdasdasdsadasdsa</a>
         </div>
       </div>
       <div className="footer__center">
