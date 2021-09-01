@@ -24,26 +24,26 @@
 
 .footer__song-info {
   display: flex;
+  width: 100%;
   flex-direction: column;
   text-align: start;
-  width: 50%;
+  overflow: hidden;
 }
 
 .footer__song-info__name {
   color: #ffffff;
   font-size: 14px;
-  position: left;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .footer__song-info__author {
   color: #b2b2b2;
   font-size: 12.5px;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .footer__center {
