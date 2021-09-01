@@ -8,7 +8,14 @@ const Body = props => {
 	return (
 		<div className="body">
       <Header/>
-			This is the body
+			<div className="body__info">
+        <img className="body__info-img"></img>
+        <div className="body__info-text">
+          <strong>PLAYLIST</strong>
+          <h2>Discover weekly</h2>
+          <p>asda</p>
+        </div>
+      </div>
 		</div>
 	);
 };

@@ -7,3 +7,16 @@
   overflow-y: scroll;
   width: 100%;
 }
+
+.body__info {
+  display: flex;
+
+}
+
+.body__info-text {
+  
+}
+
+.body__info-img {
+  display: flex;
+}
