@@ -9,7 +9,7 @@ const Body = props => {
 		<div className="body">
       <Header/>
 			<div className="body__info">
-        <img className="body__info-img"></img>
+        <img src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/5c37622a-7a39-4d95-bd4a-275878274ea3/metcon-7-zapatillas-de-entrenamiento-CHLK3h.png" className="body__info-img"></img>
         <div className="body__info-text">
           <strong>PLAYLIST</strong>
           <h2>Discover weekly</h2>

@@ -10,13 +10,16 @@
 
 .body__info {
   display: flex;
-
+  align-items: flex-end;
 }
 
-.body__info-text {
-  
+.body__info-text > h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
 }
 
 .body__info-img {
   display: flex;
+  height: 200px;
+  width: 200px;
 }
