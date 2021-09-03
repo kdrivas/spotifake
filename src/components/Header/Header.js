@@ -8,8 +8,8 @@ import './Header.css';
 
 const CustomAvatar = withStyles((theme) => ({
   root: {
-    width: 30,
-    height: 30,
+    width: 28,
+    height: 28,
   },
 }))(Avatar);
 
