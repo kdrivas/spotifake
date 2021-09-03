@@ -13,7 +13,7 @@ const Body = props => {
         <div className="body__info-text">
           <strong>PLAYLIST</strong>
           <h2>Discover weekly</h2>
-          <p>asda</p>
+          <p>Description...</p>
         </div>
       </div>
 		</div>

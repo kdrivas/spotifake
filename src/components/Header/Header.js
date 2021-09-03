@@ -18,9 +18,6 @@ function Header(props) {
   user['display_name'] = "dante rivas rojas";
   return (
     <div className="header">
-      <div className="header__left">
-        <SearchOutlined/>
-      </div>
       <div className="header__rigth">
         <CustomAvatar />
         <div className="header__user-name">{user?.display_name}</div>

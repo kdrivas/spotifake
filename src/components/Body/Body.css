@@ -19,10 +19,12 @@
   height: 18vw;
   min-height: 180px;
   margin-right: 20px;
-  box-shadow: 0 0px 50px black;
+  box-shadow: 0 0px 40px #333333;
 }
 
-.body__info-text {
+.body__info-text > p{
+  font-size: 14px;
+  color: rgb(140, 140, 140)
 }
 
 .body__info-text > h2 {
