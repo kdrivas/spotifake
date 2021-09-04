@@ -57,6 +57,7 @@ const Body = ({
         <br/>
         <hr/>
         <div>
+          {discoverWeekly?.tracks.items.map(item => (<div>jshdjsadhsa</div>))}
         </div>
       </div>
 		</div>
