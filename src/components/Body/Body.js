@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './../Header';
+import SongRow from './../SongRow';
 import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -54,10 +55,20 @@ const Body = ({
           <CustomFavoriteIcon className="icon-green"/>
           <CustomHorizonIcon/>
         </div>
-        <br/>
-        <hr/>
-        <div>
-          {discoverWeekly?.tracks.items.map(item => (<div>jshdjsadhsa</div>))}
+        <div className="body__list">
+          <div className="body__song-header">
+            <p>#</p>
+            <p>TITULO</p>
+            <p>ALBUM</p>
+            <p>AGREGADO AL</p>
+            <p>AGREGADO AL</p>
+          </div>
+          <br/>
+          <hr/>
+          <br/>
+          <div>
+            {discoverWeekly?.tracks.items.map((item, index) => (<SongRow track={item.track} songNumber={index} key={index}/>))}
+          </div>
         </div>
       </div>
 		</div>

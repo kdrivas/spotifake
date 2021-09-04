@@ -1,0 +1,50 @@
+.song-row {
+  display: flex;
+  padding: 8px;
+  border-radius: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  gap: 15px;
+}
+
+.song-row:hover {
+  background-color: #424242;
+}
+
+.song-row > h2{
+  width: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.song-row__info {
+  display: flex;
+  width: 47%;
+  overflow: hidden;
+}
+
+.song-row__album {
+  flex: 1;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-row__duration {
+  width: 25%;
+  align-items: center;
+  display: flex;
+}
+
+.song-row__image {
+  height: 40px;
+}
+
+
+.song-row__album-info{
+
+}

@@ -53,3 +53,11 @@
 .icon-green:hover {
   transform: scale(1.08);
 }
+
+.body__list {
+  margin-top: 30px;
+}
+
+.body__song-header {
+  display: flex;
+}
