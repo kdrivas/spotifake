@@ -6,27 +6,32 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   gap: 15px;
+  color: rgb(179,179,179);
 }
 
 .song-row:hover {
+  color: white;
   background-color: #424242;
 }
 
 .song-row > h2{
   width: 2%;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .song-row__info {
+  font-size: 14px;
   display: flex;
   width: 47%;
   overflow: hidden;
 }
 
 .song-row__album {
-  flex: 1;
+  font-size: 14px;
+  width: 25%;
   align-items: center;
   display: flex;
   overflow: hidden;
@@ -35,6 +40,7 @@
 }
 
 .song-row__duration {
+  font-size: 14px;
   width: 25%;
   align-items: center;
   display: flex;
@@ -46,5 +52,9 @@
 
 
 .song-row__album-info{
+  margin-left: 10px;
+}
 
+.song-row__album-info > h4{
+  color: white;
 }
