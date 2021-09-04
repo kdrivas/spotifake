@@ -2,7 +2,7 @@
   height: 100vh;
   background: linear-gradient(rgb(84, 84, 84), #000000);
   color: white;
-  overflow-y: scroll;
+  overflow-y: overlay;
   width: 100%;
 }
 
@@ -37,7 +37,7 @@
 .body__songs {
   background: #1E1E1E;
   padding: 17px 32px 0 32px;
-  height: 100%;
+  height: max-content;
 }
 
 .body__icons {
