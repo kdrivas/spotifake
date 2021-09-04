@@ -1,17 +1,19 @@
 .body {
   height: 100vh;
-  background: linear-gradient(rgb(84, 84, 84), rgb(0,0,0));
+  background: linear-gradient(rgb(84, 84, 84), rgb(31,31,31));
   color: white;
-  padding: 14px 32px 20px 32px;
   overflow-y: scroll;
   width: 100%;
 }
 
+.body__top {
+  padding: 14px 32px 20px 32px;
+}
+
 .body__info {
-  margin-bottom: 100px;
   display: flex;
   align-items: flex-end;
-  margin: 40px 0 40px 0;
+  margin: 40px 0 5px 0;
 }
 
 .body__info > img {
@@ -30,6 +32,11 @@
 .body__info-text > h2 {
   font-size: 48px;
   margin-bottom: 10px;
+}
+
+.body__songs {
+  background: #1E1E1E;
+  height: 100%;
 }
 
 .body__icons {
