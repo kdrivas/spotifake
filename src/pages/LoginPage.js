@@ -4,7 +4,11 @@ import Player from '../components/Player';
 import { connect } from 'react-redux';
 import { getTokenFromUrl, spotify } from './../constants';
 
-import { SET_PLAYLIST_REQUESTED, SET_TOKEN_REQUESTED, SET_USER_REQUESTED } from './../redux/actions/info-action';
+import { 
+  SET_PLAYLIST_REQUESTED, 
+  SET_TOKEN_REQUESTED, 
+  SET_USER_REQUESTED, 
+  SET_WEEKLY_REQUESTED } from './../redux/actions/info-action';
 
 import PropTypes from 'prop-types';
 
@@ -12,7 +16,8 @@ const LoginPage = ({
   info: {token},
   setUserInfo,
   setTokenUser,
-  setPlaylistsUser
+  setPlaylistsUser,
+  setWeeklyList
 }) => {
 
   useEffect(() => {
@@ -34,13 +39,18 @@ const LoginPage = ({
         console.log(playlists);
         setPlaylistsUser(playlists);
       })
+
+      spotify.getPlaylist('37i9dQZEVXcNsAGCiuC5KH').then(playlists => {
+        console.log(playlists);
+        setWeeklyList(playlists);
+      })
     }
 
   }, [])
 
   return (
     <div className="App">
-      {token ? <Player/> : <Player/> }
+      {token ? <Player/> : <Login/> }
     </div>
   );
 };
@@ -56,7 +66,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setUserInfo: (payload) => dispatch({type: SET_USER_REQUESTED, payload}),
   setTokenUser: (payload) => dispatch({type: SET_TOKEN_REQUESTED, payload}),
-  setPlaylistsUser: (payload) => dispatch({type: SET_PLAYLIST_REQUESTED, payload})
+  setPlaylistsUser: (payload) => dispatch({type: SET_PLAYLIST_REQUESTED, payload}),
+  setWeeklyList: (payload) => dispatch({type: SET_WEEKLY_REQUESTED, payload})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

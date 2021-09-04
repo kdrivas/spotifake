@@ -32,3 +32,16 @@
   margin-bottom: 10px;
 }
 
+.body__icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.icon-green {
+  color: #1DB954;
+}
+
+.icon-green:hover {
+  transform: scale(1.08);
+}

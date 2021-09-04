@@ -1,10 +1,41 @@
 import React from 'react';
 import Header from './../Header';
+import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
 import './Body.css';
 
-const Body = props => {
+
+const CustomPlayIcon = withStyles((theme) => ({
+  root: {
+    width: 70,
+    height: 70,
+    margin: 0,
+    padding: 0,
+  },
+}))(PlayCircleFilledWhiteIcon);
+
+const CustomFavoriteIcon = withStyles((theme) => ({
+  root: {
+    width: 35,
+    height: 35,
+  },
+}))(FavoriteIcon);
+
+const CustomHorizonIcon = withStyles((theme) => ({
+  root: {
+    width: 35,
+    height: 35,
+  },
+}))(MoreHorizIcon);
+
+const Body = ({
+  info: {discoverWeekly}
+}) => {
+  console.log(discoverWeekly)
 	return (
 		<div className="body">
       <Header/>
@@ -13,7 +44,14 @@ const Body = props => {
         <div className="body__info-text">
           <strong>PLAYLIST</strong>
           <h2>Discover weekly</h2>
-          <p>Description...</p>
+          <p>{discoverWeekly?.description}</p>
+        </div>
+      </div>
+      <div className="body__songs">
+        <div className="body__icons">
+          <CustomPlayIcon className="icon-green"/>
+          <CustomFavoriteIcon className="icon-green"/>
+          <CustomHorizonIcon/>
         </div>
       </div>
 		</div>
@@ -24,4 +62,10 @@ Body.propTypes = {
 	
 };
 
-export default Body;
+const mapStateToProps = (state) => ({
+  info: state.info
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Body);
