@@ -50,7 +50,7 @@ const LoginPage = ({
 
   return (
     <div className="App">
-      {token ? <Player/> : <Player/> }
+      {token ? <Player/> : <Login/> }
     </div>
   );
 };

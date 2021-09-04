@@ -8,7 +8,7 @@ import {
 const initialState = {
   user: null,
   playlists: [],
-  discoverWeekly: {},
+  discoverWeekly: null,
   playing: false,
   item: null,
   token: null

@@ -7,19 +7,19 @@ import PropTypes from 'prop-types';
 import './Player.css';
 
 const Player = props => {
-	return (
-		<div className="player">
-			<div className="player__body">
-				<Sidebar/>
-				<Body/>
-			</div>
-			<Footer/>
-		</div>
-	);
+  return (
+    <div className="player">
+      <div className="player__body">
+        <Sidebar/>
+        <Body/>
+      </div>
+      <Footer/>
+    </div>
+  );
 };
 
 Player.propTypes = {
-	
+  
 };
 
 export default Player;
