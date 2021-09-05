@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
@@ -8,9 +8,13 @@ import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import Slider from '@material-ui/core/Slider';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-
-import { IconButton } from '@material-ui/core';
+import {
+  SET_PLAYING_REQUESTED,
+  SET_ITEM_REQUESTED
+} from '../../redux/actions/info-action';
 import PropTypes from 'prop-types';
+
+import { connect } from 'react-redux';
 
 import './Footer.css';
 
@@ -48,15 +52,29 @@ const SpotifySlider = withStyles({
   },
 })(Slider);
 
-const Footer = (props) => {
+const Footer = ({
+  spotify,
+  info: {item, playing},
+  setPlaying,
+  setItem
+}) => {
+
+  useEffect(() => {
+    spotify.getMyCurrentPlaybackState().then((data) => {
+      // Log in spotify and play a song
+      console.log('play', data.body)
+      setPlaying(data.body.is_playing);
+      setItem(data.body.item);
+    });
+  }, [spotify]);
 
 	return (
 		<div className="footer">	
 			<div className="footer__left">
-        <img className="footer__album-logo" src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_3.0/w_300,c_limit/5c37622a-7a39-4d95-bd4a-275878274ea3/metcon-7-zapatillas-de-entrenamiento-CHLK3h.png"></img>
+        <img className="footer__album-logo" src={item?.album.images[0].url} alt={item?.name}></img>
         <div className="footer__song-info">
-          <a className="footer__song-info__name" href="">Song</a>
-          <a className="footer__song-info__author" href="">asdasdasasdasdhghgjgjgjhgjgjhgjasdasdasdsadasdsa</a>
+          <a className="footer__song-info__name">{item?.name}</a>
+          <a className="footer__song-info__author">{item.artists.map((artist) => artist.name).join(", ")}</a>
         </div>
       </div>
       <div className="footer__center">
@@ -88,4 +106,13 @@ Footer.propTypes = {
 	
 };
 
-export default Footer;
+const mapStateToProps = (state) => ({
+  info: state.info
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setPlaying: (payload) => dispatch({type: SET_PLAYING_REQUESTED, payload}),
+  setItem: (payload) => dispatch({type: SET_ITEM_REQUESTED, payload}),
+});
+
+export default connect(mapStateToProps , mapDispatchToProps)(Footer);

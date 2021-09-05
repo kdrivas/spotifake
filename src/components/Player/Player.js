@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 
 import './Player.css';
 
-const Player = props => {
+const Player = ({ spotify }) => {
   return (
     <div className="player">
       <div className="player__body">
         <Sidebar/>
         <Body/>
       </div>
-      <Footer/>
+      <Footer spotify={spotify}/>
     </div>
   );
 };

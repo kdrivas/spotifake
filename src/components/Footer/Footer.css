@@ -1,6 +1,6 @@
 .footer {
   background: #181818;
-  position: fixed;
+  position: absolute;
   display: flex;
   bottom: 0px;
   height: 90px;
@@ -36,6 +36,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .footer__song-info__author {

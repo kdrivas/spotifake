@@ -2,7 +2,9 @@ import {
   SET_USER,
   SET_TOKEN,
   SET_PLAYLIST,
-  SET_WEEKLY
+  SET_WEEKLY,
+  SET_ITEM,
+  SET_PLAYING
 } from '../actions/info-action';
 
 const initialState = {
@@ -11,7 +13,8 @@ const initialState = {
   discoverWeekly: null,
   playing: false,
   item: null,
-  token: null
+  token: null,
+  playing: false,
 };
 
 export default(state = initialState, {type, payload}) => {
@@ -36,6 +39,16 @@ export default(state = initialState, {type, payload}) => {
       return {
         ...state,
         discoverWeekly: payload
+      }
+    case SET_PLAYING:
+      return {
+        ...state,
+        playing: payload
+      }
+    case SET_ITEM:
+      return {
+        ...state,
+        item: payload
       }
     default:
       return state

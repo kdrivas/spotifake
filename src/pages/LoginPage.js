@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Login from './../components/Login';
 import Player from '../components/Player';
 import { connect } from 'react-redux';
-import { getTokenFromUrl, spotify } from './../constants';
+import { getTokenFromUrl } from './../constants';
 
 import { 
   SET_PLAYLIST_REQUESTED, 
@@ -11,6 +11,9 @@ import {
   SET_WEEKLY_REQUESTED } from './../redux/actions/info-action';
 
 import PropTypes from 'prop-types';
+import SpotifyWebApi from "spotify-web-api-node"
+
+const spotify = new SpotifyWebApi();
 
 const LoginPage = ({
   info: {token},
@@ -31,18 +34,18 @@ const LoginPage = ({
       spotify.setAccessToken(_token)
 
       spotify.getMe().then(user => {
-        console.log(user)
-        setUserInfo(user)
+        console.log(user.body)
+        setUserInfo(user.body)
       })
 
       spotify.getUserPlaylists().then(playlists => {
         console.log(playlists);
-        setPlaylistsUser(playlists);
+        setPlaylistsUser(playlists.body);
       })
 
       spotify.getPlaylist('37i9dQZEVXcNsAGCiuC5KH').then(playlists => {
         console.log(playlists);
-        setWeeklyList(playlists);
+        setWeeklyList(playlists.body);
       })
     }
 
@@ -50,7 +53,7 @@ const LoginPage = ({
 
   return (
     <div className="App">
-      {token ? <Player/> : <Login/> }
+      {token ? <Player spotify={spotify}/> : <Login/> }
     </div>
   );
 };
