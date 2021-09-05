@@ -58,23 +58,36 @@
   margin-top: 30px;
 }
 
-.body__song-header {
-  display: flex;
-  width: 500px;
+.body__list hr {
+  background-color: rgb(179,179,179);
+  border-color: rgb(179,179,179);
+  color: rgb(179,179,179);
 }
 
-.body__song-header:nth-child(1) {
+.body__song-header {
+  display: flex;
+  gap: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 13px;
+  color: rgb(179,179,179);
+}
+
+.body__song-header p:nth-child(1) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   width: 3%;
 }
 
-.body__song-header:nth-child(2) {
+.body__song-header p:nth-child(2) {
   width: 47%;
 }
 
-.body__song-header:nth-child(3) {
+.body__song-header p:nth-child(3) {
   width: 25%;
 }
 
-.body__song-header:nth-child(4) {
+.body__song-header p:nth-child(4) {
   width: 25%;
 }

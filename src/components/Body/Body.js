@@ -62,7 +62,6 @@ const Body = ({
             <p>TITULO</p>
             <p>ALBUM</p>
             <p>AGREGADO AL</p>
-            <p>AGREGADO AL</p>
           </div>
           <br/>
           <hr/>
