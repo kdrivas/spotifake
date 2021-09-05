@@ -63,8 +63,10 @@ const Footer = ({
     spotify.getMyCurrentPlaybackState().then((data) => {
       // Log in spotify and play a song
       console.log('play', data.body)
-      setPlaying(data.body.is_playing);
-      setItem(data.body.item);
+      if (data.body){
+        setPlaying(data.body.is_playing);
+        setItem(data.body.item);
+      }
     });
   }, [spotify]);
 
@@ -74,7 +76,7 @@ const Footer = ({
         <img className="footer__album-logo" src={item?.album.images[0].url} alt={item?.name}></img>
         <div className="footer__song-info">
           <a className="footer__song-info__name">{item?.name}</a>
-          <a className="footer__song-info__author">{item.artists.map((artist) => artist.name).join(", ")}</a>
+          <a className="footer__song-info__author">{item?.artists.map((artist) => artist.name).join(", ")}</a>
         </div>
       </div>
       <div className="footer__center">

@@ -15,7 +15,7 @@ const SongRow = ({track, songNumber}) => {
   return (
     <div className="song-row" onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
       <div className="song-row__number">
-        {selected ? <i class="fas fa-play"></i> : <h4>{songNumber + 1}</h4>}
+        {selected ? <i className="fas fa-play"></i> : <h4>{songNumber + 1}</h4>}
       </div>
       <div className="song-row__info">
         <img src={track.album.images[0].url} className="song-row__image"/>

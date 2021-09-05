@@ -14,7 +14,6 @@ const initialState = {
   playing: false,
   item: null,
   token: null,
-  playing: false,
 };
 
 export default(state = initialState, {type, payload}) => {
