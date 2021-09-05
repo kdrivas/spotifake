@@ -36,6 +36,7 @@ const CustomHorizonIcon = withStyles((theme) => ({
 const Body = ({
   info: {discoverWeekly}
 }) => {
+
 	return (
 		<div className="body">
       <div className="body__top">

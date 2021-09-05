@@ -14,9 +14,8 @@
   background-color: #424242;
 }
 
-.song-row > h2{
-  width: 2%;
-  font-size: 15px;
+.song-row__number{
+  width: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
