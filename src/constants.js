@@ -1,4 +1,4 @@
-
+export const myPlaylist = "37i9dQZEVXcNsAGCiuC5KH";
 
 export const authEndpoint = "https://accounts.spotify.com/authorize"
 

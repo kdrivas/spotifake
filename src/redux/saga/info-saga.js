@@ -10,7 +10,9 @@ import {
   SET_ITEM,
   SET_ITEM_REQUESTED,
   SET_PLAYING,
-  SET_PLAYING_REQUESTED
+  SET_PLAYING_REQUESTED,
+  SET_PROGRESS,
+  SET_PROGRESS_REQUESTED,
 } from '../actions/info-action';
 
 import {
@@ -18,6 +20,10 @@ import {
 	takeLatest,
 	takeEvery
 } from 'redux-saga/effects';
+
+function* setProgress({payload}){
+  yield put({type: SET_PROGRESS, payload});
+}
 
 function* setPlaying({payload}){
 	yield put({type: SET_PLAYING, payload});
@@ -50,4 +56,5 @@ export default function* infoSaga() {
   yield takeEvery(SET_WEEKLY_REQUESTED, setWeekly);
   yield takeEvery(SET_PLAYING_REQUESTED, setPlaying);
   yield takeEvery(SET_ITEM_REQUESTED, setItem);
+  yield takeEvery(SET_PROGRESS_REQUESTED, setProgress);
 }

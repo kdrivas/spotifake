@@ -8,9 +8,14 @@ import {
   SET_PLAYLIST_REQUESTED, 
   SET_TOKEN_REQUESTED, 
   SET_USER_REQUESTED, 
-  SET_WEEKLY_REQUESTED } from './../redux/actions/info-action';
+  SET_WEEKLY_REQUESTED,
+  SET_PLAYING_REQUESTED,
+  SET_ITEM_REQUESTED,
+  SET_PROGRESS_REQUESTED
+} from './../redux/actions/info-action';
 
 import PropTypes from 'prop-types';
+import { myPlaylist } from './../constants';
 import SpotifyWebApi from "spotify-web-api-node"
 
 const spotify = new SpotifyWebApi();
@@ -20,7 +25,9 @@ const LoginPage = ({
   setUserInfo,
   setTokenUser,
   setPlaylistsUser,
-  setWeeklyList
+  setWeeklyList,
+  setPlaying,
+  setItem
 }) => {
 
   useEffect(() => {
@@ -29,24 +36,32 @@ const LoginPage = ({
     window.location.hash = ""
 
     if (_token){
-      console.log(_token)
-      setTokenUser(_token)
-      spotify.setAccessToken(_token)
+      setTokenUser(_token);
+      spotify.setAccessToken(_token);
 
       spotify.getMe().then(user => {
         console.log(user.body)
         setUserInfo(user.body)
-      })
+      });
 
       spotify.getUserPlaylists().then(playlists => {
         console.log(playlists);
         setPlaylistsUser(playlists.body);
-      })
+      });
 
-      spotify.getPlaylist('37i9dQZEVXcNsAGCiuC5KH').then(playlists => {
+      spotify.getPlaylist(myPlaylist).then(playlists => {
         console.log(playlists);
         setWeeklyList(playlists.body);
-      })
+      });
+
+      spotify.getMyCurrentPlaybackState().then((data) => {
+        // Log in spotify and play a song
+        if (data.body){
+          setPlaying(data.body.is_playing);
+          setItem(data.body);
+          setProgress(data.body.progress_ms);
+        }
+      });
     }
 
   }, [])
@@ -70,7 +85,10 @@ const mapDispatchToProps = (dispatch) => ({
   setUserInfo: (payload) => dispatch({type: SET_USER_REQUESTED, payload}),
   setTokenUser: (payload) => dispatch({type: SET_TOKEN_REQUESTED, payload}),
   setPlaylistsUser: (payload) => dispatch({type: SET_PLAYLIST_REQUESTED, payload}),
-  setWeeklyList: (payload) => dispatch({type: SET_WEEKLY_REQUESTED, payload})
+  setWeeklyList: (payload) => dispatch({type: SET_WEEKLY_REQUESTED, payload}),
+  setPlaying: (payload) => dispatch({type: SET_PLAYING_REQUESTED, payload}),
+  setItem: (payload) => dispatch({type: SET_ITEM_REQUESTED, payload}),
+  setProgress: (payload) => dispatch({type: SET_PROGRESS_REQUESTED, payload})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

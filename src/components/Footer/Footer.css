@@ -95,12 +95,12 @@
   gap: 8px;
 }
 
-.footer_play-button {
+.footer__play-button {
   transform: scale(1.62);
   color: white;
 }
 
-.footer_play-button:hover {
+.footer__play-button:hover {
   transform: scale(1.70);
   color: white;
 }

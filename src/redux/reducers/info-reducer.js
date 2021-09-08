@@ -4,7 +4,8 @@ import {
   SET_PLAYLIST,
   SET_WEEKLY,
   SET_ITEM,
-  SET_PLAYING
+  SET_PLAYING,
+  SET_PROGRESS
 } from '../actions/info-action';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   playing: false,
   item: null,
   token: null,
+  progress: 0,
 };
 
 export default(state = initialState, {type, payload}) => {
@@ -48,6 +50,11 @@ export default(state = initialState, {type, payload}) => {
       return {
         ...state,
         item: payload
+      }
+    case SET_PROGRESS:
+      return {
+        ...state,
+        progress: payload
       }
     default:
       return state
