@@ -27,7 +27,8 @@ const LoginPage = ({
   setPlaylistsUser,
   setWeeklyList,
   setPlaying,
-  setItem
+  setItem,
+  setProgress
 }) => {
 
   useEffect(() => {

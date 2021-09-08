@@ -67,14 +67,26 @@ const Footer = ({
 
   const minProgress = item ? Math.floor(progress / 60000) : 0
   const secProgress = item ? ((progress % 60000) / 1000).toFixed(0) : 0
-
+  console.log('init progress', progress)
   const handlePlayPause = () => {
     if (playing) {
       spotify.pause();
       setPlaying(false);
+      spotify.getMyCurrentPlayingTrack().then((data) => {
+        if (data.body){
+          setPlaying(data.body.is_playing);
+          setItem(data.body);
+        }
+      });
     } else {
       spotify.play();
       setPlaying(true);
+      spotify.getMyCurrentPlayingTrack().then((data) => {
+        if (data.body){
+          setPlaying(data.body.is_playing);
+          setItem(data.body);
+        }
+      });
     }
   };
 
@@ -100,7 +112,10 @@ const Footer = ({
 
 
   const handleChange = (event, newValue) => {
-    setProgress(newValue);
+    const newProgress = (newValue * item.item.duration_ms / 100).toFixed(0)
+    setProgress(newProgress);
+    spotify.seek(newProgress);
+    console.log('new value', newProgress)
   };
 
 	return (
@@ -121,7 +136,7 @@ const Footer = ({
           <RepeatIcon fontSize="small"  className="footer__button"/>
         </div>
         <div className="footer__time-info">
-          <span>{minProgress}:{secProgress}</span>
+          <span>{minProgress}:{String(secProgress).padStart(2, '0')}</span>
           <SpotifySlider  value={item ? (100 * progress / item.item.duration_ms) : 0} onChange={handleChange}/>
           <span>{min}:{sec}</span>
         </div>
