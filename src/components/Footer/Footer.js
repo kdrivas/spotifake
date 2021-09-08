@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
@@ -67,47 +67,49 @@ const Footer = ({
 
   const minProgress = item ? Math.floor(progress / 60000) : 0
   const secProgress = item ? ((progress % 60000) / 1000).toFixed(0) : 0
-  console.log('init progress', progress)
+
   const handlePlayPause = () => {
     if (playing) {
       spotify.pause();
       setPlaying(false);
-      spotify.getMyCurrentPlayingTrack().then((data) => {
-        if (data.body){
-          setPlaying(data.body.is_playing);
-          setItem(data.body);
-        }
-      });
     } else {
       spotify.play();
       setPlaying(true);
-      spotify.getMyCurrentPlayingTrack().then((data) => {
-        if (data.body){
-          setPlaying(data.body.is_playing);
-          setItem(data.body);
-        }
-      });
     }
+    spotify.getMyCurrentPlayingTrack().then((data) => {
+      if (data.body){
+        setItem(data.body);
+        setProgress(data.body.progress_ms);
+      }
+    });
   };
 
   const skipNext = () => {
     spotify.skipToNext();
-    spotify.getMyCurrentPlayingTrack().then((data) => {
-      if (data.body){
-        setPlaying(data.body.is_playing);
-        setItem(data.body);
-      }
-    });
+    // Wait to update the data
+    setTimeout(async function(){
+      spotify.getMyCurrentPlayingTrack().then((data) => {
+        if (data.body){
+          setPlaying(data.body.is_playing);
+          setItem(data.body);
+          setProgress(0);
+        }
+      })
+    }, 1000);
   };
 
   const skipPrevious = () => {
     spotify.skipToPrevious();
-    spotify.getMyCurrentPlayingTrack().then((data) => {
-      if (data.body){
-        setPlaying(data.body.is_playing);
-        setItem(data.body);
-      }
-    });
+    // Wait to update the data
+    setTimeout(async function(){
+      spotify.getMyCurrentPlayingTrack().then((data) => {
+        if (data.body){
+          setPlaying(data.body.is_playing);
+          setItem(data.body);
+          setProgress(0);
+        }
+      })
+    }, 1000);
   };
 
 
@@ -115,7 +117,6 @@ const Footer = ({
     const newProgress = (newValue * item.item.duration_ms / 100).toFixed(0)
     setProgress(newProgress);
     spotify.seek(newProgress);
-    console.log('new value', newProgress)
   };
 
 	return (
@@ -130,9 +131,9 @@ const Footer = ({
       <div className="footer__center">
         <div className="footer__buttons">
           <ShuffleIcon fontSize="small" className="footer__button"/>
-          <SkipPreviousIcon onClick={skipNext} className="footer__button"/>
+          <SkipPreviousIcon onClick={skipPrevious} className="footer__button"/>
           {playing ? <PauseCircleFilledIcon onClick={handlePlayPause} className="footer__play-button"/> : <PlayCircleFilledIcon onClick={handlePlayPause} className="footer__play-button"/>} 
-          <SkipNextIcon onClick={skipPrevious} className="footer__button"/>
+          <SkipNextIcon onClick={skipNext} className="footer__button"/>
           <RepeatIcon fontSize="small"  className="footer__button"/>
         </div>
         <div className="footer__time-info">

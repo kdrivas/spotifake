@@ -64,7 +64,6 @@ const LoginPage = ({
         }
       });
     }
-
   }, [])
 
   return (

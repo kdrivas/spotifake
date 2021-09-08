@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 
 const SongRow = ({track, songNumber}) => {
   const [selected, setSelected] = useState(false);
+  const minDuration = Math.floor(track.duration_ms / 60000);
+  const secDuration = ((track.duration_ms % 60000) / 1000).toFixed(0);
+
   const mouseEnter = (event) => {
     setSelected(true);
   }
@@ -30,7 +33,7 @@ const SongRow = ({track, songNumber}) => {
         {track.album.name}
       </div>
       <div className="song-row__duration">
-        {Math.floor(track.duration_ms / 60000)}:{((track.duration_ms % 60000) / 1000).toFixed(0)}
+        {minDuration}:{String(secDuration).padStart(2, '0')}
       </div>
     </div>
   );
